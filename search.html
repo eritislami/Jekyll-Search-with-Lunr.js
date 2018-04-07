@@ -1,0 +1,30 @@
+---
+layout: search
+---
+
+<div class="search-page">
+	<form class="form-inline my-5" action="search.html" method="get">
+		<i class="fas fa-search mr-3" aria-hidden="true"></i>
+		<input class="form-control" type="text" id="search-box" placeholder="Search" name="query">
+		<input class="btn btn-green btn-sm" type="submit" value="SEARCH">
+	</form>
+
+	<ul id="search-results"></ul>
+</div>
+<script>
+	window.store = {
+		{% for post in site.posts %}
+		"{{ post.url | slugify }}": {
+			"title": "{{ post.title | xml_escape }}",
+			"author": "{{ post.author | xml_escape }}",
+			"category": "{{ post.category | xml_escape }}",
+			"content": {{ post.content | strip_html | strip_newlines | jsonify }},
+			"url": "{{ post.url | xml_escape }}"
+		}
+		{% unless forloop.last %},{% endunless %}
+		{% endfor %}
+	};
+</script>
+
+<script src="/assets/js/tools/lunr.js"></script>
+<script src="/assets/js/search.js"></script>
