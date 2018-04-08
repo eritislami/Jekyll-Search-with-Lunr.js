@@ -24,3 +24,6 @@ SOFTWARE.
 ## Acknowledgement
 ### Lunr.js - http://lunrjs.com/
 Copyright (C) 2013 by Oliver Nightingale
+
+### Bootstrap - https://getbootstrap.com/
+Copyright (c) 2011-2016 Twitter, Inc.
